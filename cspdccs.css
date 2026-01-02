@@ -1,77 +1,81 @@
-/* Collapsible sidebars */
+/**
+* Collapsible sidebars
+*/
+
 .visual-refresh [class*="sidebarList"] {
-  position: fixed; /* Remove if you don't want it to float */
-  width: 150px; /* Set to 0px if you don't want it to float */
+  position: fixed;
+  width: 140px;
   container-type: unset;
   opacity: 0%;
   height: 100%;
   z-index: 998;
-  left: -70px;
-  filter: drop-shadow(16px 16px 16px #0005) ;
+  left: -130px;
+  filter: drop-shadow(16px 16px 16px #0005);
+  backdrop-filter: blur(0.2rem);
   transition-property: opacity, left, width;
   transition-duration: .5s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .visual-refresh [class*="sidebar"]:hover [class*="sidebarList"] {
-  left: 70px;
+  left: 0px;
   opacity: 100%;
-  width: 300px; /* Set your preferred width here (resize handle is disabled) */
+  width: 250px; /* Set your preferred width here (resize handle is disabled) */
 }
 
 .visual-refresh [class*="guilds"] {
-  z-index: 999; /* So the sidebar pops from behind the servers */
+  z-index: 999;
+  position: fixed;
+  height: 100%;
+  opacity: 0%;
+  left: -70px;
+  filter: drop-shadow(16px 16px 16px #0005) ;
+  backdrop-filter: blur(0.2rem);
+  transition-property: opacity, left, width;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.visual-refresh [class*="guilds"]:hover {
+  left: 0px;
+  opacity: 100%;
 }
 
 .visual-refresh [class*="panels"] {
   position: fixed; /* Floating user panel (status, deafen, etc) */
-  width: 60px;
+  width: 72px;
   z-index: 999;
-  transition: width .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.visual-refresh [class*="panels"]:hover {
-  width: 300px;
-  z-index: 9999;
-}
-
-
-.visual-refresh [class*="panels"] [class*="container"] [class*="buttons"] {
-
   opacity: 0%;
-  scale: 0%; /* Because the buttons can't stay inside the panel on chromium (any help is appreciated) */
-  transition-property: opacity, margin-bottom, scale;
+  left: -70px;
+  transition-property: opacity, left, width;
   transition-duration: .5s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: 0.08s;
+  background: none;
+  backdrop-filter: blur(0.1rem);
 }
 
-.visual-refresh ._5e434347c823b592-panels:hover [class*="container"] [class*="buttons"] {
- 
-   scale: 100%;
-   opacity: 100%;
-  transition-property: opacity, margin-bottom, scale;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+/* Make the sidebar not appear when hovering over areas in the bottom left */
+.visual-refresh ._37e49614b9f110a9-avatarWrapper {
+  min-width: 0%;
 }
 
-.visual-refresh [class*="sidebarResizeHandle"] {
+.visual-refresh [class*="sidebarResizeHandle_"] {
   display: none; /* Set your preferred width in the sidebar settings */
 }
 
-.visual-refresh [class*="container"] [class*="membersWrap"] {
-  position: fixed; /* Remove if you don't want it to float */
-  height: 100%;
-  opacity: 0%;
-  z-index: 999;
-  right: -230px;
-top: 80px;  /* Add/change this according to your desktop/client */
-  filter: drop-shadow(-16px -16px 16px #0005) ;
-  transition-property: right, opacity;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+.visual-refresh ._59d0d7075b521375-clickTrapContainer [class="_4e35b986167c457d-tooltip"] {
+  display: none
 }
 
-.visual-refresh [class*="container"] [class*="membersWrap"]:hover {
-  right: 0px;
+.visual-refresh [class*="panels"]:hover {
+  width: 280px;
+  z-index: 9999;
+  left: 0px;
   opacity: 100%;
+}
+/* Make banners look right */
+.visual-refresh .f37cb1984c371ee5-bannerImage, .visual-refresh .f37cb1984c371ee5-bannerImg {
+  width: 250px;
 }
